@@ -10,3 +10,11 @@ Climate change scenarios are often weak in changing the inherent variability of 
 This graphs shows the effect of altered antecedent recharge years on specfific drought years. The question here is whether the catchments get drier or wetter due to the alteration.
 
 ![Poster_Zoom](EGU2018_Stoelzle_et_al_zoom.png)
+
+## Citation
+
+Stoelzle, M. et al. (2018): Stress testing: recharge scenarios to quantify streamflow drought sensitivity. EGU GA Abstracts.
+
+## Abstract
+
+![EGU_Abstract](https://meetingorganizer.copernicus.org/EGU2018/EGU2018-3391.pdf)
