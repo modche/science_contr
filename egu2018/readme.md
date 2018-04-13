@@ -17,4 +17,4 @@ Stoelzle, M. et al. (2018): Stress testing: recharge scenarios to quantify strea
 
 ## Abstract
 
-![EGU_Abstract](https://meetingorganizer.copernicus.org/EGU2018/EGU2018-3391.pdf)
+(https://meetingorganizer.copernicus.org/EGU2018/EGU2018-3391.pdf)
