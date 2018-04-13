@@ -1,3 +1,3 @@
 ## EGU 2013
 
-![Poster](EGU_Stoelzle_et_al.png)
+![Poster](EGU2013_Stoelzle_et_al.png)
