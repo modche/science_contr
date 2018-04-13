@@ -1,4 +1,6 @@
 ## EGU 2018
 
+# Abstract
+Text here.
 
-![Poster](EGU2018_Poster_Stresstesting_Stoelzle_v2.pdf)
+![Poster](EGU2018_Stoelzle_et_al.png)
