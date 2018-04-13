@@ -1,12 +1,12 @@
 ## EGU 2018
 
 ### Abstract
-Text here.
+Climate change scenarios generally weak in changing the inherent climate variability of catchments. To test the effect of changed climate variability on drought propagation a framework of stress testing scenarios is developed. This framework gives us the possibility to quantify catchments' response to altered antecedent conditions. As climate signal is mainly simoustanouly shaped by the variability of precipitation and temperature we focus in these stress testing scenarios on a more comprehensive variable to assess drought sensitivity: the recharge.
 
 ![Poster](EGU2018_Stoelzle_et_al.png)
 
 
 ## Details
-Text here.
+This graphs shows the effect of altered antecedent recharge years on specfific drought years. The question here is whether the catchments get drier or wetter due to the alteration.
 
 ![Poster_Zoom](EGU2018_Stoelzle_et_al_zoom.png)
