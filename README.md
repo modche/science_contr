@@ -12,7 +12,7 @@ Snapshots of selected scientifc contributions (presentations, posters). Short ab
 | TDH  |  2016 |   |  Presentation |
 | EGU  |  2016 |   |  Presentation |
 | TDH  |  2017 |  [Graphical low flow analysis Rhine river (100 years data) in German](/tdh2017/readme.md) | Poster  |
-|  EGU |  2018 |  [Stress testing scenarios to assess streamflow droughts](/egu2018/readme.md)| Poster  |
+|  EGU |  2018 |  [Stress testing scenarios to quantify streamflow drought sensitivity](/egu2018/readme.md)| Poster  |
 
 
 ## Awards
