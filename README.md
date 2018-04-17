@@ -2,8 +2,11 @@
 Snapshots of selected scientifc contributions (presentations, posters). Short abstracts and further references will come...
 
 
-|Test|Head1|Head2|
-|LONGER TEXT|Head1|Head2|
+|  Conference |  Year | Titel  |  Type |   |
+|---|---|---|---|---|
+|  EGU | 2012  | ...  | Oral  |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
 
 
  * EGU2012
