@@ -4,13 +4,17 @@ Snapshots of selected scientifc contributions (presentations, posters). Short ab
 
 |  Conference |  Year | Titel  |  Type |   |
 |---|---|---|---|---|
-|  EGU | 2012  | ...  | Oral  |   |
+|  TDH | 2011  |  Umfrage |  Poster |   |
+|  EGU | 2012  | [The role of seasonal recharge and storage concepts for low flow modelling](/egu2013/readme.md)   | Oral  |   |
+|  EGU |  2013 |   |   |   |
+| EGU  | 2014  |   |   |   |
+| EGU  |  2015 |   |   |   |
 |   |   |   |   |   |
 |   |   |   |   |   |
 
 
  * EGU2012
- * [The role of seasonal recharge and storage concepts for low flow modelling](/egu2013/readme.md) (EGU 2013)
+ * (EGU 2013)
  * EGU2014
  * EGU2015
  * EGU2016
