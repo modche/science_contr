@@ -9,7 +9,7 @@ Climate change scenarios are often weak in changing the inherent variability of 
 
 
 ## Details
-This graphs shows the effect of altered antecedent recharge years on specfific drought years. The question here is whether the catchments get drier or wetter due to the alteration.
+This graphs shows the effect of altered antecedent recharge years on specfific drought years (drought years with specific severity = width of the bars). The question here is whether the catchments get drier or wetter due to the alteration. Drought years get mostly "wetter" because the original antecedent year before a drought is normally below-average... ;)
 
 ![Poster_Zoom](EGU2018_Stoelzle_et_al_zoom.png)
 
