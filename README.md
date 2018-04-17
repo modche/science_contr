@@ -9,11 +9,14 @@ Snapshots of selected scientifc contributions (presentations, posters). Short ab
 | HIC  | 2012 | As simple as possible? Drought recognition based on streamflow recession | Presentation | 
 |  EGU | 2013  | [The role of seasonal recharge and storage concepts for low flow modelling](/egu2013/readme.md)   | Poster  |
 | EGU  | 2014  |   |  Presentation |
-| EGU  |  2015 |   |  Poster |
+| HYPER | 2014 | Recharge scenarios to identify controls of catchments’ sensitivity to drought | Presentation|
+| EGU  |  2015 |   |  Poster |
 | TDH  |  2016 |   |  Presentation |
 | EGU  |  2016 |   |  Presentation |
 | TDH  |  2017 |  [Graphical low flow analysis Rhine river (100 years data) in German](/tdh2017/readme.md) | Poster  |
-|  EGU |  2018 |  [Stress testing scenarios to quantify streamflow drought sensitivity](/egu2018/readme.md)| Poster  |
+| KLIWA | 2017 | Niedrigwassermanagement - Synthesebericht | Presentation |
+|OGW | 2017 | Large cathcment storages at high elevations | Workshop poster |
+|  EGU |  2018 | [Stress testing scenarios to quantify streamflow drought sensitivity](/egu2018/readme.md)| Poster  |
 
 
 ### Awards
