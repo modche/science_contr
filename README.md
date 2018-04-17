@@ -16,8 +16,8 @@ Snapshots of selected scientifc contributions (presentations, posters). Short ab
 
 
 ## Awards
-[EGU OSPP Award 2015](https://www.egu.eu/awards-medals/ospp-award/2015/michael-stoelzle/)
-[Tdh2016 Posterpreis "Bestes Design"](http://www.dhydrog.de/wp-content/uploads/2017/06/DHG-Aktuell_2017-Nr1.pdf)
+* [EGU OSPP Award 2015](https://www.egu.eu/awards-medals/ospp-award/2015/michael-stoelzle/)
+* [Tdh2016 Posterpreis "Bestes Design"](http://www.dhydrog.de/wp-content/uploads/2017/06/DHG-Aktuell_2017-Nr1.pdf)
 
 
 ### Contact
