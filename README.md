@@ -2,9 +2,9 @@
 Snapshots of selected scientifc contributions
 
  * EGU: 2012,2013,2014,2015,2016, 
- * [EGU2018](/egu2018/readme.md)
+ * Stress testing scenarios to assess streamflow droughts [EGU2018](/egu2018/readme.md)
  * TdH: 2011, (2016), 2017
- * [TDH2017](/tdh2017/readme.md)
+ * Graphical low flow analysis Rhine river (100 years data) in German [TDH2017](/tdh2017/readme.md)
 
 
 ### Contact
