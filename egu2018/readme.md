@@ -13,5 +13,6 @@ This graphs shows the effect of altered antecedent recharge years on specfific d
 
 ## Citation
 
-Stoelzle, M. et al. (2018): Stress testing: recharge scenarios to quantify streamflow drought sensitivity. EGU GA Abstracts.
+Stoelzle, M. et al. (2018): Stress testing: recharge scenarios to quantify streamflow drought sensitivity.
+_EGU General Assembly_, volume: 20, doi: 10.13140/RG.2.2.27856.40969
 https://meetingorganizer.copernicus.org/EGU2018/EGU2018-3391.pdf
