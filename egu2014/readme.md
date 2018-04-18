@@ -2,4 +2,4 @@
  Text
  
 ## Approach
-!(Snap)(improve_bfsim.png)
+![Snap](improve_bfsim.png)
