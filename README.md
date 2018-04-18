@@ -1,4 +1,4 @@
-## Reseach interests
+## Research interests
  * Catchment hydrology
  * Streamflow drought, low flows, groundwater dynamics, drought propagation
  * Alpine hydrology
