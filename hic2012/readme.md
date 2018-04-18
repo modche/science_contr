@@ -6,3 +6,5 @@ In this study three storage-streamflow relationships were derived from streamflo
 
 ![Graoph](Recession_Evolution_Colored.png)
 _Figure:_
+
+See also corresponding conference paper [here](HYA00048-00420.pdf)
