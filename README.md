@@ -15,7 +15,7 @@ Snapshots of selected scientifc contributions (presentations, posters). Short ab
 | HIC  | 2012 | [As simple as possible? Drought recognition based on streamflow recession](/hic2012/) | Presentation | 
 |  EGU | 2013  | [The role of seasonal recharge and storage concepts for low flow modelling](/egu2013/readme.md)   | Poster  |
 | EGU  | 2014  | Aquifer type-specific conceptual groundwater models improve baseflow simulation  |  Presentation |
-| HYPER | 2014 | Recharge scenarios to identify controls of catchments’ sensitivity to drought | Presentation|
+| HYPER | 2014 | [Recharge scenarios to identify controls of catchments’ sensitivity to drought](/hyper2014/) | Presentation|
 | EGU  |  2015 | [Improved baseflow characterization in mountainous catchments](/egu2015/readme.md)  |  Poster |
 | TDH  |  2016 | Starkregen BW  |  Presentation |
 | EGU  |  2016 |  [Winter streamflow analysis in frozen, alpine catchments to quantify groundwater contribution and properties](/egu2016/readme.md) |  Presentation |
