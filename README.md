@@ -27,13 +27,13 @@ Snapshots of selected scientifc contributions (presentations, posters). Short ab
 
 ### Awards
 * [EGU OSPP Award 2015](https://www.egu.eu/awards-medals/ospp-award/2015/michael-stoelzle/)
-* [Tdh2016 Posterpreis "Bestes Design"](http://www.dhydrog.de/wp-content/uploads/2017/06/DHG-Aktuell_2017-Nr1.pdf)
+* [TdH 2016 Poster Award "Best Design"](http://www.dhydrog.de/wp-content/uploads/2017/06/DHG-Aktuell_2017-Nr1.pdf)
 
 ### ResearchGate (all Papers and Posters)
 https://www.researchgate.net/profile/Michael_Stoelzle
 
 ### Contact
-Michael Stölzle
+Michael Stölzle, Dr. rer.nat.
 michael.stoelzle@hydro.uni-freiburg.de
 
 
