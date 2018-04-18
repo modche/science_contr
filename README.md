@@ -1,3 +1,9 @@
+## Reseach interests
+ * Catchment hydrology
+ * Streamflow drought, low flows, groundwater dynamics, drought propagation
+ * Alpine hydrology
+ * Concepts of visualizations in geoscience
+
 ## Scientific contributions @ conferences
 Snapshots of selected scientifc contributions (presentations, posters). Short abstracts and further references will come...
 
