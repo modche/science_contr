@@ -6,7 +6,7 @@ Snapshots of selected scientifc contributions (presentations, posters). Short ab
 |---|---|---|---|
 |  TDH | 2011  |  [Indikatoren für Trockenheit - Umfrage unter Akteuren](/tdh2011/readme.md) |  Poster |
 |  EGU |  2012 |  Are streamflow recession characteristics really characteristic? |  Presentation |
-| HIC  | 2012 | [As simple as possible? Drought recognition based on streamflow recession](/hic2012/readme.md) | Presentation | 
+| HIC  | 2012 | [As simple as possible? Drought recognition based on streamflow recession](/hic2012/) | Presentation | 
 |  EGU | 2013  | [The role of seasonal recharge and storage concepts for low flow modelling](/egu2013/readme.md)   | Poster  |
 | EGU  | 2014  | Aquifer type-specific conceptual groundwater models improve baseflow simulation  |  Presentation |
 | HYPER | 2014 | Recharge scenarios to identify controls of catchments’ sensitivity to drought | Presentation|
