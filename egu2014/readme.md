@@ -6,3 +6,7 @@ The aim of this contribution was to systematically test different parsimonious m
  
 ## Approach
 ![Snap](improve_bfs.png)
+
+## Publication
+
+![Snap2](stoelzle_hp_2015.png)
