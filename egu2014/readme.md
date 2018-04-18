@@ -5,4 +5,4 @@ Streamflow response during baseflow conditions is a function of storage and outf
 The aim of this contribution was to systematically test different parsimonious model structures in a set of catchments where different aquifer types govern streamflow response during baseflow conditions. 
  
 ## Approach
-![Snap](improve_bfsim.png)
+![Snap](improve_bfs.png)
