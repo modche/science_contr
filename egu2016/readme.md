@@ -7,4 +7,4 @@ Alpine catchments are often considered as quickly responding systems where strea
 ...
 
 ## See also..
-(../ogw/)
+[Obergurgl Workshop Alpine Hydrology, Workshop Poster](https://github.com/modche/science_contr/tree/master/ogw2017)
