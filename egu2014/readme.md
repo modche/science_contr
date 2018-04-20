@@ -9,4 +9,6 @@ The aim of this contribution was to systematically test different parsimonious m
 
 ## Publication
 
+https://onlinelibrary.wiley.com/doi/full/10.1002/hyp.10251
+
 ![Snap2](stoelzle_hp_2015.png)
