@@ -24,6 +24,8 @@ Snapshots of selected scientifc contributions (presentations, posters). Short ab
 | KLIWA | 2017 | Niedrigwassermanagement - Synthesebericht | Presentation |
 |OGW | 2017 | [Large catchment storages at high elevations](/ogw2017/readme.md) | Workshop poster |
 |  EGU |  2018 | [Stress testing scenarios to quantify streamflow drought sensitivity](/egu2018/readme.md)| Poster  |
+|  FRIEND |  Nov-2018 | Stress testing | Pres.+Conf.Proc.  |
+
 
 
 ### Awards
