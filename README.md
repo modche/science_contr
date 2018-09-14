@@ -21,7 +21,7 @@ Snapshots of selected scientifc contributions (presentations, posters). Short ab
 | TDH  |  2016 | Starkregen BW  |  Presentation |
 | EGU  |  2016 |  [Winter streamflow analysis in frozen, alpine catchments to quantify groundwater contribution and properties](/egu2016/readme.md) |  Presentation |
 | TDH  |  2017 |  [Graphical low flow analysis Rhine river (100 years data) in German](/tdh2017/readme.md) | Poster  |
-| KLIWA | 2017 | Niedrigwassermanagement - Synthesebericht | Presentation |
+| KLIWA | 2017 | Niedrigwassermanagement - Synthesebericht [Link PDF](https://www.kliwa.de/_download/KLIWAHeft23.pdf) | Presentation |
 |OGW | 2017 | [Large catchment storages at high elevations](/ogw2017/readme.md) | Workshop poster |
 |  EGU |  2018 | [Stress testing scenarios to quantify streamflow drought sensitivity](/egu2018/readme.md)| Poster  |
 |  FRIEND |  Nov-2018 | Stress testing | Pres.+Conf.Proc.  |
