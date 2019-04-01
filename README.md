@@ -25,12 +25,16 @@ Snapshots of selected scientifc contributions (presentations, posters). Short ab
 |OGW | 2017 | [Large catchment storages at high elevations](/ogw2017/readme.md) | Workshop poster |
 |  EGU |  2018 | [Stress testing scenarios to quantify streamflow drought sensitivity](/egu2018/readme.md)| Poster  |
 |  FRIEND |  2018 | Stress testing as complement to climate scenarios: Recharge scenarios to quantify streamflow drought sensitivity | Presentation  |
+|  TDH |  2019 | Dürre und Niedrigwasser 2018 in Baden-Württemberg | Presentation  |
+|  EGU |  2019 | Streamflow components beyond binary quick- and baseflow separation | Presentation  |
 
 
 
 ### Awards
 * [EGU OSPP Award 2015](https://www.egu.eu/awards-medals/ospp-award/2015/michael-stoelzle/)
 * [TdH 2016 Poster Award "Best Design"](http://www.dhydrog.de/news/aktuelles/aktuelles-2016-archiv/)
+* TdH 2019 Poster Award "Best Design"
+
 
 ### ResearchGate (all Papers and Posters)
 https://www.researchgate.net/profile/Michael_Stoelzle
