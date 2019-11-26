@@ -26,7 +26,7 @@ Snapshots of selected scientifc contributions (presentations, posters). Short ab
 |  EGU |  2018 | [Stress testing scenarios to quantify streamflow drought sensitivity](/egu2018/readme.md)| Poster  |
 |  FRIEND |  2018 | Stress testing as complement to climate scenarios: Recharge scenarios to quantify streamflow drought sensitivity | Presentation  |
 |  TDH |  2019 | Dürre und Niedrigwasser 2018 in Baden-Württemberg | Presentation  |
-|  EGU |  2019 | Streamflow components beyond binary quick- and baseflow separation | Presentation  |
+|  EGU |  2019 | Streamflow components beyond binary quick- and baseflow separation [Link Paper](https://www.hydrol-earth-syst-sci-discuss.net/hess-2019-236/) | Presentation  |
 
 
 
