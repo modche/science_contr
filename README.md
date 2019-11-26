@@ -1,6 +1,6 @@
 ## Research interests
  * Catchment hydrology
- * Streamflow drought, low flows, groundwater dynamics, drought propagation
+ * Streamflow drought, low flows, groundwater dynamics, drought propagation, baseflow
  * Alpine hydrology
  * Visualizations (in Geoscience)
  * Big data, Data science
@@ -27,6 +27,7 @@ Snapshots of selected scientifc contributions (presentations, posters). Short ab
 |  FRIEND |  2018 | Stress testing as complement to climate scenarios: Recharge scenarios to quantify streamflow drought sensitivity | Presentation  |
 |  TDH |  2019 | Dürre und Niedrigwasser 2018 in Baden-Württemberg | Presentation  |
 |  EGU |  2019 | Streamflow components beyond binary quick- and baseflow separation [Link Paper](https://www.hydrol-earth-syst-sci-discuss.net/hess-2019-236/) | Presentation  |
+|OGW | 2019| Stress testing drought (Workshop presentation| |
 
 
 
@@ -40,7 +41,7 @@ Snapshots of selected scientifc contributions (presentations, posters). Short ab
 https://www.researchgate.net/profile/Michael_Stoelzle
 
 ### Contact
-Michael Stölzle, Dr. rer.nat.
+Michael Stölzle
 michael.stoelzle@hydro.uni-freiburg.de
 
 
