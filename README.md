@@ -29,7 +29,7 @@ Snapshots of selected scientifc contributions (presentations, posters).
 |  EGU |  2019 | Streamflow components beyond binary quick- and baseflow separation [Link Paper](https://www.hydrol-earth-syst-sci-discuss.net/hess-2019-236/) | Presentation  |
 |OGW | 2019| Stress testing drought (Workshop), Co-Author |Presentation |
 ||2020|Niedrigwasser in Baden-Württemberg - Entwicklungen und Auswirkungen, Naturforschende Gesellschaft |Presentation |
-|EGU|2020|tba||
+|EGU|2020|Stress test modelling to assess catchment drought resistance and recovery [Poster](https://presentations.copernicus.org/EGU2020/EGU2020-5046_presentation.pdf)|Poster and Textchat|
 
 
 ### Awards
