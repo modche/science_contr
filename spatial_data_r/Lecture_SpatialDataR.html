@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Spatial data in R</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Michael Stölzle" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <script src="libs/kePrint/kePrint.js"></script>
+    <link href="libs/lightable/lightable.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Spatial data in R
+## tidy approach
+### Michael Stölzle
+### University Freiburg
+### 2021/10/15 (updated: 2022-01-21)
+
+---
+
+class: center, middle
+
+background-image: url("intro_background.png")
+
+# **Spatial Data in R**
+## Introduction and sf package
+### Michael Stölzle
+#### January 2022
+
+michael.stoelzle@hydro.uni-freiburg.de 
+
+
+
+---
+
+
+# Comparison GUI-GIS and R-GIS
+
+&gt; &lt;br&gt; 
+&gt; Everything you have done with QGIS, you can also do with R.  
+&lt;br&gt;
+
+
+&lt;table class="table" style="font-size: 18px; "&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Attribute &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Desktop GIS &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; R and R Studio &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Origin &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Geography &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Computing, Statistics, Data analysis &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Focus &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Graphical User Interface &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Command line, Scripts &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Reproducabiliy &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Often minimal &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Maximal (.R, .Rmd) &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br&gt;&lt;br&gt;
+**Basic Idea**: Output from a Data analysis is now coimbined with some spatial information. For example, you want to use HOBO sensor locations to estimate the average temperature per district in Freiburg.
+
+---
+
+# Comparison vector and raster data
+
+&lt;table class="table" style="font-size: 18px; float: left; margin-right: 10px;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Data model &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; vector &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; raster &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Geometry &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; points, lines, polygons &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; cells of constant size &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Level of precision &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; high &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; variable (resolution) &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Reference &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; CRS (Coordinate Reference System) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Regular grids (nrow ncol cellsize) &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Data types &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; categorical, continuous &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; categorical, continuous &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; R packages &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sf, (sp) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; terra (or raster) &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Unit support &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; yes &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; no &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+---
+
+.pull-left[
+
+# Raster-vector interactions
+
+Examples from Book: Geocomputation with R
+
+&lt;img src="https://geocompr.robinlovelace.net/06-raster-vector_files/figure-html/vector-rasterization2-1.png" height="200" /&gt;
+
+&lt;br&gt;
+&lt;img src="https://geocompr.robinlovelace.net/06-raster-vector_files/figure-html/06-raster-vector-40-1.png" height="200" /&gt;
+]
+
+.pull-right[
+# Tasks
+
+ * Extracting elevation zones from Digital Elevation Model?
+
+ * Landuse classification in a catchment?
+ 
+ * Counting measurements location in a given area?
+ 
+ * Extracting elevation along a profile from A to B?
+ 
+![](https://geocompr.robinlovelace.net/06-raster-vector_files/figure-html/cropmask-1.png)&lt;!-- --&gt;
+
+]
+
+---
+.pull-left[
+
+# Loading sf package into R
+
+&lt;img src="https://user-images.githubusercontent.com/520851/34887433-ce1d130e-f7c6-11e7-83fc-d60ad4fae6bd.gif" height="150" style="display: block; margin: auto;" /&gt;
+
+ * sf means **Simple Features** for R
+ * represents simple features as records in a `data.frame` or `tibble` with a geometry list-column
+
+
+```r
+#install.packages("sf")
+#devtools::install_github("r-spatial/sf")
+
+library(sf)
+vignette('sf1')
+```
+
+]
+
+.pull-right[
+
+# Get help on sf
+
+&lt;img src="sf_vignettes.png" width="300" height="300" style="display: block; margin: auto;" /&gt;
+
+ * https://github.com/r-spatial/sf
+ * R Cheatsheet: `sf`
+ * R help `?sf`
+ * Several R demos available
+ * http://stackoverflow.com
+ * Book: Geocomputation with R ([link](https://geocompr.robinlovelace.net))
+
+]
+
+---
+.pull-left[
+
+# Properties of sf package
+
+ * open standard and modern architecture
+ * including resources from `sp`, `rgeos`, `rgdal`
+ * fast `read`/`write` and good plotting performances
+ * data is in `data.frames` or `tibble`, thus `sf` can often be 
+ handled as data frame!
+ * Fully pipe %&gt;% compatible
+ * st functions are intuitive, all starts with `st_`
+ * Other packages support `sf`: 
+   - `ggplot2`
+   - `tmap` 
+   - `mapview`
+ * Communiy, support, tutorials
+
+]
+
+
+.pull-right[
+# Main features in sf
+
+&lt;img src="sf_obj.png" width="400" /&gt;
+
+]
+
+---
+# Application: Import ESRI shapefiles
+
+.pull-left[
+### File structure
+
+* **.shp**   
+The main file that stores the feature geometry; required.
+* **.shx**  
+The index file that stores the index of the feature geometry; required.
+* **.dbf**  
+The dBASE table that stores the attribute information of features; required.
+
+others like .prj, .cpg, .qpj are optional
+]
+
+.pull-right[
+
+### Example from explorer
+
+
+&lt;img src="shp_files_dir.png" width="400" style="display: block; margin: auto;" /&gt;
+
+
+]
+---
+
+# Read a shapefile into R
+
+
+```r
+library(sf)
+shp &lt;- st_read('~/Desktop/freiburg_districts_shp/stadtteile.shp')
+```
+
+```
+## Reading layer `stadtteile' from data source 
+##   `/Users/modchemba/Desktop/freiburg_districts_shp/stadtteile.shp' 
+##   using driver `ESRI Shapefile'
+## Simple feature collection with 28 features and 5 fields
+## Geometry type: POLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 3400154 ymin: 5307882 xmax: 3420277 ymax: 5326568
+## Projected CRS: DHDN / 3-degree Gauss-Kruger zone 3
+```
+
+ * responsive package (see console)
+ 
+ * mutiple available drivers to read data (e.g. ESRI shp, csv, gml, geojson, osm, xlsx, sqlite)
+ 
+ * information on spatial data, features, projection
+ 
+ * 100% compatible to tidyverse and ggplot2
+ 
+Question here: Is the `geometry type` as expected?
+---
+
+
+# sf object in R
+A combination of geometries and data!
+
+
+
+
+
+```r
+shp
+```
+
+```
+## Simple feature collection with 28 features and 4 fields
+## Geometry type: POLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 3400154 ymin: 5307882 xmax: 3420277 ymax: 5326568
+## Projected CRS: DHDN / 3-degree Gauss-Kruger zone 3
+## First 10 features:
+##    nr gid         name          flaeche                       geometry
+## 1  34  10       Kappel 13821673.9790869 POLYGON ((3418272 5308963, ...
+## 2  53  16 Betzenhausen  2162662.7992333 POLYGON ((3412155 5318478, ...
+## 3  63  23     Opfingen 14624254.0880103 POLYGON ((3407607 5318667, ...
+## 4  21   3      Herdern 4294806.05614526 POLYGON ((3415229 5318824, ...
+## 5  31   7      Waldsee 4831312.05680027 POLYGON ((3416680 5316478, ...
+## 6  41  11       Oberau 1282197.16288387 POLYGON ((3415803 5317308, ...
+## 7  43  13   Günterstal 15103550.9922429 POLYGON ((3417080 5308112, ...
+## 8  56  19 Waltershofen 7583387.61667147 POLYGON ((3407958 5319769, ...
+## 9  61  21      Haslach 3419892.44314375 POLYGON ((3412185 5316309, ...
+## 10 62  22  St. Georgen  10665885.466873 POLYGON ((3412155 5315585, ...
+```
+---
+
+# sf: Classes and Data structure
+
+.pull-left[
+
+```r
+class(shp) # a combination
+```
+
+```
+## [1] "sf"         "data.frame"
+```
+
+```r
+attr(shp, "sf_column")
+```
+
+```
+## [1] "geometry"
+```
+
+```r
+cbind(shp$name[1:5])
+```
+
+```
+##      [,1]          
+## [1,] "Kappel"      
+## [2,] "Betzenhausen"
+## [3,] "Opfingen"    
+## [4,] "Herdern"     
+## [5,] "Waldsee"
+```
+]
+
+.pull-right[
+
+
+```r
+shp %&gt;% st_drop_geometry %&gt;% tibble()
+```
+
+```
+## # A tibble: 28 × 4
+##    nr    gid   name         flaeche         
+##    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;           
+##  1 34    10    Kappel       13821673.9790869
+##  2 53    16    Betzenhausen 2162662.7992333 
+##  3 63    23    Opfingen     14624254.0880103
+##  4 21    3     Herdern      4294806.05614526
+##  5 31    7     Waldsee      4831312.05680027
+##  6 41    11    Oberau       1282197.16288387
+##  7 43    13    Günterstal   15103550.9922429
+##  8 56    19    Waltershofen 7583387.61667147
+##  9 61    21    Haslach      3419892.44314375
+## 10 62    22    St. Georgen  10665885.466873 
+## # … with 18 more rows
+```
+
+]
+
+---
+
+# Understand sf-objects (1/2): Data structure
+
+.pull-left[
+
+```r
+st_coordinates(shp) %&gt;%  dim()
+```
+
+```
+## [1] 9009    4
+```
+
+```r
+st_coordinates(shp) %&gt;%  head(5)
+```
+
+```
+##            X       Y L1 L2
+## [1,] 3418272 5308963  1  1
+## [2,] 3418260 5308959  1  1
+## [3,] 3418215 5308945  1  1
+## [4,] 3418202 5308916  1  1
+## [5,] 3418196 5308901  1  1
+```
+
+```r
+names(shp)
+```
+
+```
+## [1] "nr"       "gid"      "name"     "flaeche"  "geometry"
+```
+]
+
+.pull-right[
+
+
+```r
+as.data.frame(st_coordinates(shp)) %&gt;%  
+  count(L2, sort = TRUE) %&gt;% slice (1:10)
+```
+
+```
+##    L2    n
+## 1   7 1069
+## 2   3  625
+## 3   1  600
+## 4   8  580
+## 5  10  519
+## 6  25  484
+## 7  26  381
+## 8  20  364
+## 9  15  343
+## 10 21  334
+```
+
+]
+
+---
+
+# Understand sf-objects (2/2): Plotting
+
+
+```r
+plot(st_geometry(shp), col = sf.colors(12, categorical = TRUE), 
+     border = 'black', 
+     axes = TRUE)
+plot(st_geometry(st_centroid(shp)), pch = 4, col = 'red', add = TRUE)
+```
+
+![](Lecture_SpatialDataR_files/figure-html/unnamed-chunk-18-1.png)&lt;!-- --&gt;
+
+---
+
+# Processing sf geometries (like in tidyverse with %&gt;%)
+
+
+```r
+shp %&gt;% select(name, geometry) %&gt;% 
+        mutate(area = st_area(geometry)) %&gt;% 
+        mutate(area_km2 = as.numeric(area / 1e6)) %&gt;% 
+        mutate(category = if_else(area_km2 &gt; 10, 'large', 'small')) %&gt;% 
+        slice(1:5)
+```
+
+```
+## Simple feature collection with 5 features and 4 fields
+## Geometry type: POLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 3401435 ymin: 5308778 xmax: 3419773 ymax: 5320948
+## Projected CRS: DHDN / 3-degree Gauss-Kruger zone 3
+##           name           area  area_km2 category                       geometry
+## 1       Kappel 13821674 [m^2] 13.821674    large POLYGON ((3418272 5308963, ...
+## 2 Betzenhausen  2162663 [m^2]  2.162663    small POLYGON ((3412155 5318478, ...
+## 3     Opfingen 14624254 [m^2] 14.624254    large POLYGON ((3407607 5318667, ...
+## 4      Herdern  4294806 [m^2]  4.294806    small POLYGON ((3415229 5318824, ...
+## 5      Waldsee  4831312 [m^2]  4.831312    small POLYGON ((3416680 5316478, ...
+```
+
+
+```r
+units::set_units(st_area(area), km^2) #convert with units!
+```
+
+
+---
+
+# Available methods in the sf package
+
+.pull-left[
+
+```r
+length(methods(class = "sf"))
+```
+
+```
+## [1] 104
+```
+
+
+
+```r
+#show all methods in sf package
+methods(class = "sf")
+```
+ * Read existing geometries
+ * Geometric creation (e.g. transfer data.frame to geometry POINTS)
+ * Geometric confirmation (e.g. is point element of polygon)
+ * Geometric operations (e.g. crop, intersect, union)
+ * Write geometries
+
+]
+
+.pull-right[
+
+&lt;img src="sf_st_verbs.png" width="1949" /&gt;
+
+
+]
+
+---
+
+# Create sf objects (1/2)
+
+
+```r
+data.frame(x=1:10, y = 31:40, data = runif(10)) %&gt;% sf::st_as_sf(coords = c(1,2))
+```
+
+```
+## Simple feature collection with 10 features and 1 field
+## Geometry type: POINT
+## Dimension:     XY
+## Bounding box:  xmin: 1 ymin: 31 xmax: 10 ymax: 40
+## CRS:           NA
+##          data      geometry
+## 1  0.55499132  POINT (1 31)
+## 2  0.72171177  POINT (2 32)
+## 3  0.66710782  POINT (3 33)
+## 4  0.01642333  POINT (4 34)
+## 5  0.59959529  POINT (5 35)
+## 6  0.59959463  POINT (6 36)
+## 7  0.15307906  POINT (7 37)
+## 8  0.67014339  POINT (8 38)
+## 9  0.12081853  POINT (9 39)
+## 10 0.91152644 POINT (10 40)
+```
+
+
+---
+
+# Projections with CRS
+
+
+```r
+shp_prj &lt;- shp %&gt;% st_set_crs(31467) %&gt;% st_transform(4326)
+shp_prj
+```
+
+```
+## Simple feature collection with 28 features and 4 fields
+## Geometry type: POLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 7.661892 ymin: 47.90361 xmax: 7.930848 ymax: 48.07106
+## Geodetic CRS:  WGS 84
+## First 10 features:
+##    nr gid         name          flaeche                       geometry
+## 1  34  10       Kappel 13821673.9790869 POLYGON ((7.905617 47.91363...
+## 2  53  16 Betzenhausen  2162662.7992333 POLYGON ((7.821864 47.99837...
+## 3  63  23     Opfingen 14624254.0880103 POLYGON ((7.760897 47.99944...
+## 4  21   3      Herdern 4294806.05614526 POLYGON ((7.862968 48.0019,...
+## 5  31   7      Waldsee 4831312.05680027 POLYGON ((7.882875 47.981, ...
+## 6  41  11       Oberau 1282197.16288387 POLYGON ((7.870965 47.98834...
+## 7  43  13   Günterstal 15103550.9922429 POLYGON ((7.889834 47.90582...
+## 8  56  19 Waltershofen 7583387.61667147 POLYGON ((7.765359 48.0094,...
+## 9  61  21      Haslach 3419892.44314375 POLYGON ((7.822701 47.97888...
+## 10 62  22  St. Georgen  10665885.466873 POLYGON ((7.822454 47.97237...
+```
+
+---
+# Project shapefiles manually
+
+
+```r
+proj_longlat &lt;- "+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +datum=potsdam +units=m +no_defs"
+proj_tmerc   &lt;- "+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0"
+
+GK_to_WGS84 &lt;- function(RW, HW){
+	WGS84 &lt;- data.frame(cbind("X"=RW,"Y"=HW))
+	coordinates(WGS84) &lt;- c("X", "Y")
+	proj4string(WGS84) &lt;- CRS(proj_longlat)
+	GK &lt;- as.data.frame(spTransform(WGS84, CRS(proj_tmerc)))
+	return(GK)
+}
+
+WGS_to_GK &lt;- function(lat, lon){
+	GK &lt;- data.frame(cbind("X_GK"=lat,"Y_GK"=lon))
+	coordinates(GK) &lt;- c("X_GK", "Y_GK")
+	proj4string(GK) &lt;- CRS(proj_longlat)
+	WGS84 &lt;- as.data.frame(spTransform(GK, CRS(proj_tmerc)))
+	return(WGS84)
+}
+```
+
+
+---
+
+# EPSG Code: Alternative to long projection proj-strings
+
+.pull-left[
+ 
+EPSG (European Petroleum Survey Group Geodesy)  
+
+ * Coordinate Systems Worldwide
+ 
+ * https://epsg.io or https://epsg.org/search
+ 
+ * Code (4-5 digits) for a distinct identification of coordinate reference systems and projections
+ 
+ * EPSG:4326 is WGS84 (used by Google etc.)
+ * EPSG:31467  DHDN / Gauß-Krüger Zone 3	Area: Deutschland - von 7,5° East bis 10,5° East 
+
+**Note**: To project your geometries to a specific coordinate system (i.e., EPSG-Code), you have to *know* your actual EPSG-Code AND this projection must be stored in the `sf` object!
+]
+.pull-right[
+&lt;img src="epsg.png" width="500" height="400" /&gt;
+]
+
+---
+
+# Spatial (data) manipulation with sf
+
+&lt;img src="sf_sheet.png" width="800" height="472" /&gt;
+
+---
+
+# Potential workflow
+
+ 1. Load shapefile with `st_read(file=...)`
+
+ 2. Check CRS and project geometries to other CRS
+--
+
+ 3. Do calculations like in tidyverse
+  * e.g. calculate `st_area`
+  * `join` other `tibble` to `sf`-object
+
+ 4. `ggplot() + geom_sf()`
+ 
+ 5. Use `ggplot` syntax to fine-tune your map with themes, labels, legends, color maps etc.
+ 
+ 6. Export map as PNG or PDF file.
+ 
+---
+
+
+.pull-left[
+
+### 1. Tibble with HOBO meta data ...
+
+
+```r
+pts &lt;- tibble(
+         hobo_id = c(1001, 1002, 1003),
+         lon = c(7.75, 7.9, 7.817),
+         lat = c(48.013, 47.94, 48.0215),
+         exposition = c('N', 'W', 'E'))
+pts
+```
+
+```
+## # A tibble: 3 × 4
+##   hobo_id   lon   lat exposition
+##     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     
+## 1    1001  7.75  48.0 N         
+## 2    1002  7.9   47.9 W         
+## 3    1003  7.82  48.0 E
+```
+
+### 2. ...then transform to sf and set CRS...
+
+
+```r
+pts2 &lt;- pts %&gt;% 
+        sf::st_as_sf(coords = c(2,3)) %&gt;% 
+        st_set_crs(4326) %&gt;% 
+        st_transform(31467)
+```
+]
+
+.pull-right[
+
+```r
+pts2
+```
+
+```
+## Simple feature collection with 3 features and 2 fields
+## Geometry type: POINT
+## Dimension:     XY
+## Bounding box:  xmin: 3406819 ymin: 5311901 xmax: 3417894 ymax: 5321055
+## Projected CRS: DHDN / 3-degree Gauss-Kruger zone 3
+## # A tibble: 3 × 3
+##   hobo_id exposition          geometry
+## *   &lt;dbl&gt; &lt;chr&gt;            &lt;POINT [m]&gt;
+## 1    1001 N          (3406819 5320188)
+## 2    1002 W          (3417894 5311901)
+## 3    1003 E          (3411832 5321055)
+```
+
+### 3. ... combine both in plotting
+
+
+```r
+ggplot() +
+  geom_sf(data = shp) # districts
+  geom_sf(data = pts2) # HOBO locations
+```
+
+`geom_sf()` automatically uses the `geometry` column to plot polygons, points etc. CRS of `shp` and `pts` must match!
+]
+
+---
+
+# End
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
