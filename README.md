@@ -30,7 +30,7 @@ Snapshots of selected scientifc contributions (presentations, posters).
 |OGW | 2019| Stress testing drought (Workshop), Co-Author |Presentation |
 ||2020|Niedrigwasser in Baden-Württemberg - Entwicklungen und Auswirkungen, Naturforschende Gesellschaft |Presentation |
 |EGU|2020|Stress test modelling to assess catchment drought resistance and recovery [Poster](https://presentations.copernicus.org/EGU2020/EGU2020-5046_presentation.pdf)|Poster and Textchat|
-|  TDH |  2021 | Stresstestmodellierung zur Auswirkung von Trockenheit auf Niedrigwasser | Poster  |
+|  TDH |  2021 | Stresstestmodellierung zur Auswirkung von Trockenheit auf Niedrigwasser (Hellwig et al.) | [Poster](https://www.hydro.uni-freiburg.de/publ/poster/poster/poster/poster/poster/poster/poster/poster/poster/poster/poster/pubpics/post364)  |
 |  TDH |  2022 | Abflusskomponenten während Wassermangel: Vergleich von LARSIM-Simulationen und der DFI-Ganglinienseparation | Talk  |
 |  EGU |  2022 | ... | Talk  |
 
